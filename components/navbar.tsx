@@ -1,4 +1,5 @@
 import React from "react";
+import Router from "next/router";
 import {
   Button,
   Container,
@@ -7,16 +8,15 @@ import {
   IconButton,
   Link,
 } from "@mui/material";
-import SendIcon from "@mui/icons-material/Send";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import CallIcon from '@mui/icons-material/Call';
 
 const Navbar = () => {
- 
+  
   return (
     <div>
-      <Container maxWidth="lg" sx={{ backgroundColor: "primary.light", mb: "50px", p: "20px" }}>
+      <Container maxWidth="lg" sx={{ backgroundColor: "common.light",  p: "20px" }}>
         <Stack
           direction="row"
           spacing={3}
@@ -48,16 +48,18 @@ const Navbar = () => {
 
           <Stack
             direction="row"
-            spacing={3}
+            spacing={2}
             justifyContent="center"
             alignItems="center"
           >
-            <Button variant="contained" endIcon={<CallIcon />}>
+            <Button variant="outlined" startIcon={<CallIcon />}>
               Contact Us
             </Button>
-            <IconButton edge="start">
+            <IconButton edge="start" size='large' onClick={() => Router.push('/login')}>
               <AccountCircleIcon/>
-              <ShoppingCartIcon />
+            </IconButton>
+            <IconButton edge="end" size='large'>
+            <ShoppingCartIcon />
             </IconButton>
           </Stack>
         </Stack>

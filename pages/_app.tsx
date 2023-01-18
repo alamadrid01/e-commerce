@@ -8,6 +8,8 @@ import theme from '../config/theme';
 import createEmotionCache from '../config/createEmotionCache';
 import '../styles/globals.css'
 import Navbar from '../components/navbar';
+import Footer from '../components/footer';
+
 
 
 // Client-side cache, shared for the whole session of the user in the browser.
@@ -29,6 +31,8 @@ export default function MyApp(props: MyAppProps) {
         <CssBaseline />
         <Navbar />
         <Component {...pageProps} />
+        <Footer />
+        
       </ThemeProvider>
     </CacheProvider>
   );
