@@ -1,0 +1,237 @@
+{
+    "products" : [
+        {
+            "id" : 1,
+            "name" : "Nordic Dining Chair",
+            "price" : 6000,
+            "description" : "The comfort of home is more in a comfortable chairNordic dining chair INS leisure modern household furniture light luxury balcony chair backrest armrest makeup nail dressing chair",
+            "image" : "./public/nordic.svg",
+            "category" : "furniture",
+            "quantity" : 6,
+            "rating" : 4.5,
+            "shipping": 0,
+            "discount": 0,
+            "color": [
+                "red",
+                "blue",
+                "green",
+                "yellow"
+            ],
+            "size": [
+                "small",
+                "medium",
+                "large"
+            ]
+
+        },
+        {
+            "id" : 2,
+            "name" : "Nordic Dining Chair",
+            "price" : 7000,
+            "description" : "Dining Chairs Nordic Furniture Chairs Living Room Furniture Bedroom Chair Chair Vanity Chair Dresser Stool With Cushion",
+            "image" : "./public/dining.svg",
+            "category" : "furniture",
+            "quantity" : 4,
+            "rating" : 4.0,
+            "shipping": 0,
+            "discount": 0,
+            "color": [
+                "red",
+                "blue",
+                "green",
+                "yellow"
+            ],
+            "size": [
+                "small",
+                "medium",
+                "large"
+            ]
+
+        },
+        {
+            "id" : 3,
+            "name" : "Acrylic Chair",
+            "price" : 10000,
+            "description" : "Luxury Acrylic Chair Living Room Dining Chair Mobile Home Furniture Transparent With Backrest Armchair Bedroom Makeup Chairs",
+            "image" : "./public/acrylic.svg",
+            "category" : "furniture",
+            "quantity" : 6,
+            "rating" : 4.5,
+            "shipping": 0,
+            "discount": 0,
+            "color": [
+                "white"
+            ],
+            "size": [
+                "small",
+                "medium"
+            ]
+
+        },
+        {
+            "id" : 4,
+            "name" : "Gaming Chair",
+            "price" : 10000,
+            "description" : "Gaming Chair Racing Chair Wcg Game Seat Internet Cafe Athletic Gaming Chair Anchor Home Computer Chair",
+            "image" : "./public/gaming.svg",
+            "category" : "furniture",
+            "quantity" : 6,
+            "rating" : 4.5,
+            "shipping": 0,
+            "discount": 0,
+            "color": [
+                "red",
+                "blue",
+                "green",
+                "yellow"
+            ],
+            "size": [
+                "small",
+                "medium",
+                "large"
+            ]
+
+        },
+        {
+            "id" : 5,
+            "name" : "Makeup Chair",
+            "price" : 10000,
+            "description" : "Makeup Chair Nordic Living Room Furniture Luxury Acrylic Armchair Ergonomic Relaxing Chairs Transparent Backrest Dining Chair",
+            "image" : "./public/makeup.svg",
+            "category" : "furniture",
+            "quantity" : 6,
+            "rating" : 4.5,
+            "shipping": 0,
+            "discount": 0,
+            "color": [
+                "white"
+            ],
+            "size": [
+                "small",
+                "medium",
+                "large"
+            ]
+
+        },
+        {
+            "id" : 6,
+            "name" : "Lazy Sofa",
+            "price" : 12000,
+            "description" : "Minimalist Lazy Sofa Living Room Furniture Tatami Single Sofa Chair Mini Couch Backrest Armchair Floor Chair for Bedroom",
+            "image" : "./public/lazy.svg",
+            "category" : "furniture",
+            "quantity" : 6,
+            "rating" : 4.5,
+            "shipping": 0,
+            "discount": 0,
+            "color": [
+                "red",
+                "blue",
+                "green",
+                "yellow"
+            ],
+            "size": [
+                "small",
+                "medium",
+                "large"
+            ]
+
+        },
+        {
+            "id" : 7,
+            "name" : "Lazy Sofa",
+            "price" : 15000,
+            "description" : "Lazy Sofa Tatami Folding Single Small Sofa Chair Bedroom Bed Balcony Bay Window Computer Chair Reading Chair Adjustable",
+            "image" : "./public/tatami.svg",
+            "category" : "furniture",
+            "quantity" : 3,
+            "rating" : 4.5,
+            "shipping": 0,
+            "discount": 0,
+            "color": [
+                "red",
+                "blue",
+                "green",
+                "yellow"
+            ],
+            "size": [
+                "small",
+                "medium",
+                "large"
+            ]
+
+        },
+        {
+            "id" : 8,
+            "name" : "Swivel Chair",
+            "price" : 10000,
+            "description" : "Swivel chair and sofa bed lounge chair, recliner or sofa bed Dark Fabric",
+            "image" : "./public/swivel.svg",
+            "category" : "furniture",
+            "quantity" : 6,
+            "rating" : 4.5,
+            "shipping": 0,
+            "discount": 0,
+            "color": [
+                "red",
+                "blue",
+                "green",
+                "yellow"
+            ],
+            "size": [
+                "small",
+                "medium",
+                "large"
+            ]
+
+        },
+        {
+            "id" : 9,
+            "name" : "Sofa",
+            "price" : 20000,
+            "description" : "The Chesterfield sofa an elegant and avant-garde sofa, famous for its elegance and able to fill any space of style and distinction.",
+            "image" : "./public/sofa.svg",
+            "category" : "furniture",
+            "quantity" : 6,
+            "rating" : 4.5,
+            "shipping": 0,
+            "discount": 0,
+            "color": [
+                "red",
+                "blue",
+                "green",
+                "yellow"
+            ],
+            "size": [
+                "small",
+                "medium",
+                "large"
+            ]
+
+        },
+        {
+            "id" : 10,
+            "name" : "Pallet Sofa",
+            "price" : 20000,
+            "description" : "Sofa pallet + cover + Cappuccino color backing made in 250 grams polyester with water repellent treatment, so that it will slip and not wet the cushion. Set of pallet sofas with cushions included. Suitable for outdoor use features: Ironmongery including maintenance recommendations:-we recommend saving the cushions inside in case of constant rain or storms, and continued exposure to the sun can affect color intensity, to prevent it from deteriorating.",
+            "image" : "./public/pallet.svg",
+            "category" : "furniture",
+            "quantity" : 6,
+            "rating" : 4.5,
+            "shipping": 0,
+            "discount": 0,
+            "color": [
+                "red",
+                "blue",
+                "green",
+                "yellow"
+            ],
+            "size": [
+                "small",
+                "medium",
+                "large"
+            ]
+
+        }
+    ]
+}

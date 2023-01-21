@@ -6,24 +6,28 @@ import {
   Typography,
   Link,
   IconButton,
+  Box
 } from "@mui/material";
 import { Facebook, Twitter } from "@mui/icons-material";
 
 const Footer = () => {
   return (
     <div>
+      <Box sx={{ backgroundColor: "primary.light" }}>
       <Container maxWidth="lg" sx={{ mt: "96px" }}>
         <Grid container>
           <Grid item xs={6}>
-            <Stack direction="column" justifyContent="center" alignItems='center'>
+            <Stack direction="column" justifyContent="center" >
               <Typography
                 variant="h5"
                 color="text.secondary"
                 sx={{ fontWeight: "600" }}
+                align="left"
+                gutterBottom
               >
                 Aloy Gallery
               </Typography>
-              <Typography variant="subtitle1">
+              <Typography variant="subtitle1" maxWidth="500px" align="left">
                 We provide the best service all of the the world including
                 antartica and also deliver across the universe including mars
                 planet
@@ -31,7 +35,8 @@ const Footer = () => {
             </Stack>
           </Grid>
           <Grid item xs={6}>
-            <Grid container>
+            <Grid container >
+              <Stack direction="row" spacing={3}>
               <Stack direction="column" spacing={3}>
                 <Typography
                   variant="h6"
@@ -95,11 +100,14 @@ const Footer = () => {
                   </IconButton>
                 </Stack>
               </Stack> */}
+           </Stack>
             </Grid>
           </Grid>
         </Grid>
       </Container>
+      </Box>
     </div>
+
   );
 };
 

@@ -36,8 +36,8 @@ const Login = () => {
       <Container maxWidth="lg">
         <Grid container >
             <Grid item xs={5} container direction='column' justifyContent='center' alignItems='center'>
-                <Typography variant="h4">Aloy Gallery</Typography>
-                <Typography variant="h3" color="text.secondary" sx={{ fontWeight:"600" }} >Welcome Back</Typography>
+                <Typography variant="h4" gutterBottom>Aloy Gallery</Typography>
+                <Typography variant="h3" color="text.secondary" sx={{ fontWeight:"600", fontSize:"24px" }} gutterBottom>Welcome Back</Typography>
                 <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
       <div>
         <Typography variant='subtitle1' color='text.secondary' sx={{ fontWeight: '600' }}>Email Address</Typography>

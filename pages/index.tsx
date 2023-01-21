@@ -11,6 +11,7 @@ import {
   Link,
   Grid,
   TextField,
+  Box
 } from "@mui/material";
 import Chair from "../public/chair.png";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
@@ -220,10 +221,10 @@ const homepage = () => {
           </Grid>
         </Grid>
       </Container>
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" sx={{ mt: '96px' }}>
         <Grid container>
           <Grid xs={6} item container direction="column" alignContent="center">
-            <Typography variant="h3" color="text.secondary">
+            <Typography variant="h3" color="text.secondary" sx={{ fontWeight: '600' }} gutterBottom>
               Why Choose Us
             </Typography>
             <Typography variant="h6" color="text.secondary">
@@ -325,9 +326,10 @@ const homepage = () => {
           </Grid>
         </Grid>
       </Container>
+
+      <Box sx={{ backgroundColor: "grey.100", mt: "96px", py: '20px' }}>
       <Container
         maxWidth="md"
-        sx={{ backgroundColor: "primary.light", mt: "96px" }}
       >
        <Stack direction="column" spacing={2} justifyContent="center" alignItems="center">
        <Typography
@@ -348,13 +350,15 @@ const homepage = () => {
           defaultValue="test"
         /> */}
         <TextField
-          required
+          placeholder="Email address"
           id="outlined-required"
-          label="Required"
-          defaultValue="Hello World"
+          label="Email Address"
+          fullWidth
+          sx={{ borderRadius: "12px" }}
         />
        </Stack>
       </Container>
+      </Box>
     </div>
   );
 };
