@@ -78,7 +78,7 @@ const Register = () => {
             label="Password"
           />
         </FormControl>
-        <Button variant='contained' fullWidth sx={{backgroundColor: 'primary.main' ,py: 2 }}>Sign Up</Button>
+        <Button variant='contained' fullWidth sx={{backgroundColor: 'primary.main' ,py: 2 }} >Sign Up</Button>
         <Typography variant='subtitle1' color='primary.main' sx={{ fontWeight: '600', fontSize: '15px', textAlign: 'right', my: 2 }}>
           <Link href='/forgot-password'>Forget Password?</Link>
         </Typography>
