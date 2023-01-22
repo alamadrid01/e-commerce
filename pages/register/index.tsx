@@ -23,7 +23,7 @@ import Image from 'next/image';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
-const Login = () => {
+const Register = () => {
     const [showPassword, setShowPassword] = React.useState(false);
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -37,10 +37,21 @@ const Login = () => {
         <Grid container >
             <Grid item xs={5} container direction='column' justifyContent='center' alignItems='center'>
                 <Typography variant="h4" gutterBottom>Aloy Gallery</Typography>
-                <Typography variant="h3" color="text.secondary" sx={{ fontWeight:"600", fontSize:"24px" }} gutterBottom>Welcome Back</Typography>
+                <Typography variant="h3" color="text.secondary" sx={{ fontWeight:"600", fontSize:"24px" }} gutterBottom>Welcome </Typography>
                 <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
       <div>
-        <Typography variant='subtitle1' color='text.secondary' sx={{ fontWeight: '600' }}>Email Address</Typography>
+        <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 2 }}>
+        <TextField
+        label="First Name"
+        id="outlined-start-adornment"
+        margin="normal"
+        />
+        <TextField
+        label="Last Name"
+        id="outlined-start-adornment"
+        margin="normal"
+        />
+        </Stack>
         <TextField
           label="email address"
           id="outlined-start-adornment"
@@ -67,9 +78,9 @@ const Login = () => {
             label="Password"
           />
         </FormControl>
-        <Button variant='contained' fullWidth sx={{backgroundColor: 'primary.main' ,py: 2 }}>Log in</Button>
+        <Button variant='contained' fullWidth sx={{backgroundColor: 'primary.main' ,py: 2 }}>Sign Up</Button>
         <Typography variant='subtitle1' color='primary.main' sx={{ fontWeight: '600', fontSize: '15px', textAlign: 'right', my: 2 }}>
-          <Link href='/register'>or sign up?</Link>
+          <Link href='/forgot-password'>Forget Password?</Link>
         </Typography>
       </div>
     </Box>
@@ -88,4 +99,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default Register
