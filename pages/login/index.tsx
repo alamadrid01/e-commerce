@@ -1,6 +1,7 @@
 import React from 'react'
 import loginImage from "../../public/login.jpg"
 import Link from 'next/link'
+import axios from 'axios';
 import {
   IconButton,
   Typography,
@@ -25,6 +26,26 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
 const Login = () => {
     const [showPassword, setShowPassword] = React.useState(false);
+    const [email, setEmail] = React.useState("");
+    const [password, setPassword] = React.useState("");
+
+    const loginHandler = async () =>{
+      const data = {
+        email,
+        password
+      }
+      const config = {
+        headers : {
+          "Content-type": "application/json"
+        }
+      }
+      try{
+        const response = await axios.post("http://localhost:3000/api/login", JSON.stringify(data), config)
+        console.log(response)
+      }catch(err){
+        console.error(err)
+      }
+    } 
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -46,6 +67,8 @@ const Login = () => {
           id="outlined-start-adornment"
           fullWidth
           margin="normal"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
         <FormControl fullWidth sx={{ my: 5}} variant="outlined" margin="normal">
           <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
@@ -65,9 +88,11 @@ const Login = () => {
               </InputAdornment>
             }
             label="Password"
+            value={password}
+            onChange={e => setPassword(e.target.value)}
           />
         </FormControl>
-        <Button variant='contained' fullWidth sx={{backgroundColor: 'primary.main' ,py: 2 }}>Log in</Button>
+        <Button variant='contained' fullWidth sx={{backgroundColor: 'primary.main' ,py: 2 }} onClick={loginHandler}>Log in</Button>
         <Typography variant='subtitle1' color='primary.main' sx={{ fontWeight: '600', fontSize: '15px', textAlign: 'right', my: 2 }}>
           <Link href='/register'>or sign up?</Link>
         </Typography>

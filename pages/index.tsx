@@ -13,7 +13,7 @@ import {
   TextField,
   Box
 } from "@mui/material";
-import Chair from "../public/chair.png";
+// import Chair from "../public/chair.png";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import LoopIcon from "@mui/icons-material/Loop";
@@ -71,12 +71,12 @@ const homepage = () => {
           </Grid>
 
           <Grid item xs={7} container justifyContent="end" alignItems="center">
-            <Image
+            {/* <Image
               src={Chair}
               width={500}
               height={600}
               alt="picture of the products"
-            />
+            /> */}
           </Grid>
         </Grid>
       </Container>
@@ -102,7 +102,7 @@ const homepage = () => {
                 backgroundColor: "grey.100",
               }}
             >
-              <Image width={200} height={200} src={Chair} alt="icon" />
+              {/* <Image width={200} height={200} src={Chair} alt="icon" /> */}
               <Typography
                 variant="h6"
                 color="text.primary"
@@ -128,7 +128,7 @@ const homepage = () => {
               >
                 Lights
               </Typography>
-              <Image width={200} height={200} src={Chair} alt="icon" />
+              {/* <Image width={200} height={200} src={Chair} alt="icon" /> */}
             </Item>
           </Grid>
 
@@ -152,7 +152,7 @@ const homepage = () => {
                 >
                   Furniture
                 </Typography>
-                <Image width={200} height={200} src={Chair} alt="icon" />
+                {/* <Image width={200} height={200} src={Chair} alt="icon" /> */}
               </Stack>
             </Item>
           </Grid>
@@ -177,7 +177,7 @@ const homepage = () => {
                 >
                   Interior Design
                 </Typography>
-                <Image width={200} height={200} src={Chair} alt="icon" />
+                {/* <Image width={200} height={200} src={Chair} alt="icon" /> */}
               </Stack>
             </Item>
           </Grid>
@@ -197,7 +197,7 @@ const homepage = () => {
               >
                 Electronics
               </Typography>
-              <Image width={200} height={200} src={Chair} alt="icon" />
+              {/* <Image width={200} height={200} src={Chair} alt="icon" /> */}
             </Item>
           </Grid>
 
@@ -209,7 +209,7 @@ const homepage = () => {
                 backgroundColor: "grey.100",
               }}
             >
-              <Image width={200} height={200} src={Chair} alt="icon" />
+              {/* <Image width={200} height={200} src={Chair} alt="icon" /> */}
               <Typography
                 variant="h6"
                 color="text.primary"
@@ -278,7 +278,7 @@ const homepage = () => {
             </Grid>
           </Grid>
           <Grid xs={6} item>
-            <Image width={600} height={600} src={Chair} alt="picture" />
+            {/* <Image width={600} height={600} src={Chair} alt="picture" /> */}
           </Grid>
         </Grid>
       </Container>
@@ -302,7 +302,7 @@ const homepage = () => {
             alignItems="center"
             sx={{ backgroundColor: "grey.100" }}
           >
-            <Image width={250} height={250} src={Chair} alt="products" />
+            {/* <Image width={250} height={250} src={Chair} alt="products" /> */}
           </Grid>
           <Grid
             item
@@ -312,7 +312,7 @@ const homepage = () => {
             alignItems="center"
             sx={{ backgroundColor: "grey.100" }}
           >
-            <Image width={250} height={250} src={Chair} alt="products" />
+            {/* <Image width={250} height={250} src={Chair} alt="products" /> */}
           </Grid>
           <Grid
             item
@@ -322,7 +322,7 @@ const homepage = () => {
             alignItems="center"
             sx={{ backgroundColor: "grey.100" }}
           >
-            <Image width={250} height={250} src={Chair} alt="products" />
+            {/* <Image width={250} height={250} src={Chair} alt="products" /> */}
           </Grid>
         </Grid>
       </Container>
