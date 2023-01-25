@@ -1,7 +1,9 @@
 import React from 'react'
+import axios from 'axios'
 import loginImage from "../../public/login.jpg"
+import Router from 'next/router'
 import Link from 'next/link'
-import axios from 'axios';
+
 import {
   IconButton,
   Typography,
@@ -27,9 +29,12 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 const Login = () => {
     const [showPassword, setShowPassword] = React.useState(false);
     const [email, setEmail] = React.useState("");
+    const [loading, setLoading] = React.useState(false);
+    const [error, setError] = React.useState(false);
     const [password, setPassword] = React.useState("");
 
     const loginHandler = async () =>{
+      setLoading(true)
       const data = {
         email,
         password
@@ -41,9 +46,21 @@ const Login = () => {
       }
       try{
         const response = await axios.post("http://localhost:3000/api/login", JSON.stringify(data), config)
-        console.log(response)
-      }catch(err){
-        console.error(err)
+        if(response.status === 200){
+          Router.push("/dashboard")
+          setLoading(false)
+        }
+
+      }catch(err: any){
+        setLoading(false)
+        if(err.response.status === 400){
+          console.log("Invalid credentials")
+        }else if(err.response.status === 500){
+          console.log("Server error")
+        }else if(err.response.status === 401){
+          console.log("Unauthorized")
+          setError(true)
+        }
       }
     } 
 
@@ -69,6 +86,8 @@ const Login = () => {
           margin="normal"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          helperText={error ? "Invalid credentials" : ""}
+          error={ error}
         />
         <FormControl fullWidth sx={{ my: 5}} variant="outlined" margin="normal">
           <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
@@ -92,7 +111,7 @@ const Login = () => {
             onChange={e => setPassword(e.target.value)}
           />
         </FormControl>
-        <Button variant='contained' fullWidth sx={{backgroundColor: 'primary.main' ,py: 2 }} onClick={loginHandler}>Log in</Button>
+        <Button variant='contained' fullWidth sx={{backgroundColor: 'primary.main' ,py: 2 }} onClick={loginHandler} disabled={loading} >Log in</Button>
         <Typography variant='subtitle1' color='primary.main' sx={{ fontWeight: '600', fontSize: '15px', textAlign: 'right', my: 2 }}>
           <Link href='/register'>or sign up?</Link>
         </Typography>

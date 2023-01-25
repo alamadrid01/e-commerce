@@ -22,7 +22,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             if(!data){
                 res.status(309).json({"data": "No data found"})
             }else{
-                res.json({data: data})
+                // Check if the password is correct
+                if(data.password !== password){
+                    res.status(401).json({"message": "Password is incorrect"})
+                }else{
+                    res.status(200).json({data})
+                }
+
             }
         }catch(err){
             console.error(err)
