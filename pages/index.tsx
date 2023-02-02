@@ -13,8 +13,6 @@ import {
   Box
 } from "@mui/material";
 import Chair from "../public/chair.png";
-import LocalShippingIcon from "@mui/icons-material/LocalShipping";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import LoopIcon from "@mui/icons-material/Loop";
 import Hero from "../components/homepage-section/hero";
 import Collection from "../components/homepage-section/collection";

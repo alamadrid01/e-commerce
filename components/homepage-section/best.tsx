@@ -2,16 +2,12 @@ import React from "react";
 import Image from "next/image";
 import axios from "axios"
 import {
-  IconButton,
   Typography,
   Container,
   Stack,
   Button,
   Rating,
   Paper,
-  Link,
-  Grid,
-  TextField,
   Box,
 } from "@mui/material";
 
