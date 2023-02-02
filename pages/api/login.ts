@@ -1,4 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
+const jwt = require("jsonwebtoken");
+const bcrypt = require("bcrypt");
 const User = require("../../models/user")
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse){
@@ -22,8 +24,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             if(!data){
                 res.status(309).json({"data": "No data found"})
             }else{
+                // Un hash the password
+                const match = await bcrypt.compare(password, data.password);
                 // Check if the password is correct
-                if(data.password !== password){
+                if(!match){
                     res.status(401).json({"message": "Password is incorrect"})
                 }else{
                     res.status(200).json({data})

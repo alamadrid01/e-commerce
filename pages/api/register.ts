@@ -1,20 +1,29 @@
 const User = require('../../models/user')
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
 
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 export default async function handler(req: NextApiRequest , res: NextApiResponse){
     if(req.method === 'POST'){
         const { fullName, email, password } = req.body
-        // console.log(fullName, email, password)
+        // Check if all fields are filled   
+        if(!fullName || !email || !password) return res.status(400).json({"error": "Please fill all fields"})
+
+        // Check if the user already exists
         const duplicate = await User.findOne({email: email}).exec();
         if(duplicate) return res.status(409).json({"error": "Duplicate file found"})
         
         try{
+            // Hash the password
+            const salt = await bcrypt.hash(password, 10);
+            
+            // Create a new user
             const result = await User.create({
                 "firstname": fullName,
                 "lastname": fullName,
                 "email": email,
-                "password": password
+                "password": salt
             })
             console.log(result)
             res.status(200).json({ 'success': `New user ${fullName} created`})

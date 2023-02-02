@@ -8,8 +8,8 @@
             "image" : "chair.png",
             "category" : "furniture",
             "quantity" : 6,
-            "rating" : 4.5,
             "shipping": 0,
+            "rating": 5,
             "discount": 0,
             "color": [
                 "red",
@@ -32,8 +32,8 @@
             "image" : "login.jpg",
             "category" : "furniture",
             "quantity" : 4,
-            "rating" : 4.0,
             "shipping": 0,
+            "rating": 5,
             "discount": 0,
             "color": [
                 "red",
@@ -56,8 +56,8 @@
             "image" : "sofa.png",
             "category" : "furniture",
             "quantity" : 6,
-            "rating" : 4.5,
             "shipping": 0,
+            "rating": 5,
             "discount": 0,
             "color": [
                 "white"
@@ -76,8 +76,8 @@
             "image" : "chair.png",
             "category" : "furniture",
             "quantity" : 6,
-            "rating" : 4.5,
             "shipping": 0,
+            "rating": 5,
             "discount": 0,
             "color": [
                 "red",
@@ -100,8 +100,8 @@
             "image" : "login.jpg",
             "category" : "furniture",
             "quantity" : 6,
-            "rating" : 4.5,
             "shipping": 0,
+            "rating": 5,
             "discount": 0,
             "color": [
                 "white"
@@ -232,6 +232,50 @@
                 "large"
             ]
 
+        }
+    ],
+    "collections": [
+        {
+            "name": "Furniture",
+            "image": "chair.png"
+        },
+        {
+            "name": "Light",
+            "image": "chair.png"
+        },
+        {
+            "name": "Decorations",
+            "image": "chair.png"
+        },
+        {
+            "name": "Sweater",
+            "image": "chair.png"
+        },
+        {
+            "name": "Long-sleeve",
+            "image": "chair.png"
+        },
+        {
+            "name": "T-shirt",
+            "image": "chair.png"
+        }
+    ],
+    "carts": [
+        {
+            "data": "Fast & Free Shipping",
+            "description": " We deliver at the right time and our shipping cost 0 dime"
+        },
+        {
+            "data": "Fast & Free Shipping",
+            "description": " We deliver at the right time and our shipping cost 0 dime"
+        },
+        {
+            "data": "Fast & Free Shipping",
+            "description": " We deliver at the right time and our shipping cost 0 dime"
+        },
+        {
+            "data": "Fast & Free Shipping",
+            "description": " We deliver at the right time and our shipping cost 0 dime"
         }
     ]
 }

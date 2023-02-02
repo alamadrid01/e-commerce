@@ -13,11 +13,11 @@ import { Facebook, Twitter } from "@mui/icons-material";
 const Footer = () => {
   return (
     <div>
-      <Box sx={{ backgroundColor: "primary.light" }}>
-      <Container maxWidth="lg" sx={{ mt: "96px" }}>
+      <Box sx={{ backgroundColor: "grey.100" }}>
+      <Container maxWidth="lg" sx={{ mt: "96px", py: '36px' }}>
         <Grid container>
           <Grid item xs={6}>
-            <Stack direction="column" justifyContent="center" >
+            <Stack direction="column" gap={8} >
               <Typography
                 variant="h5"
                 color="text.secondary"
@@ -35,8 +35,7 @@ const Footer = () => {
             </Stack>
           </Grid>
           <Grid item xs={6}>
-            <Grid container >
-              <Stack direction="row" spacing={3}>
+              <Stack direction="row" justifyContent="space-around">
               <Stack direction="column" spacing={3}>
                 <Typography
                   variant="h6"
@@ -45,7 +44,7 @@ const Footer = () => {
                 >
                   Products
                 </Typography>
-                <Link href="">Furniture</Link>
+                <Link href=""><Typography variant="body1" color="text.primary" sx={{ textDecoration: 'none' }}>Furniture</Typography> </Link>
                 <Link href="">Lights</Link>
                 <Link href="">Design</Link>
                 <Link href="">Electronics</Link>
@@ -79,7 +78,7 @@ const Footer = () => {
                 <Link href="">Electronics</Link>
                 <Link href="">Electronics</Link>
               </Stack>
-              {/* <Stack direction="column" spacing={3}>
+              <Stack direction="column" spacing={3}>
                 <Typography
                   variant="h6"
                   color="text.secondary"
@@ -92,18 +91,17 @@ const Footer = () => {
                   color="text.secondary"
                   sx={{ fontWeight: "600" }}
                 >
-                  Question or Feedback? We`&apos` love to hear from you
+                  Question or Feedback? We love to hear from you
                 </Typography>
                 <Stack direction="row" spacing={3}>
                   <IconButton>
                     <Facebook />
                   </IconButton>
                 </Stack>
-              </Stack> */}
+              </Stack>
            </Stack>
             </Grid>
           </Grid>
-        </Grid>
       </Container>
       </Box>
     </div>

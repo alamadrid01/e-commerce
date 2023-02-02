@@ -7,9 +7,9 @@ const theme = createTheme({
       white: "#ffffff",
     },
     primary: {
-      light: "#B3E5FC",
-      main: "#0652DD",
-      dark: "#03296F",
+      light: "rgba(238, 221, 204, 1)",
+      main: "rgba(52, 37, 31, 1)",
+      dark: "rgba(52, 37, 31, 1)",
       contrastText: "#212121",
     },
     secondary: {
@@ -22,8 +22,8 @@ const theme = createTheme({
       default: "#fff",
     },
     text: {
-      secondary: "#6D6D6D",
-      primary: "#101010",
+      secondary: "rgba(52, 37, 31, 1)",
+      primary: "rgba(52, 37, 31, 1)",
       disabled: "#757575",
     },
     // card: {
@@ -35,7 +35,7 @@ const theme = createTheme({
     grey: {
       "100": "rgba(156, 182, 187, 0.329)",
       "200": "rgba(156, 182, 187, 0.486)",
-      "300": "#8A8A8A",
+      "300": "rgba(238, 221, 204, 1)",
       "400": "#6D6D6D",
       "500": "#434343",
       "600": "#353535",
