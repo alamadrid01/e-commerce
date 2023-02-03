@@ -8,100 +8,79 @@ import {
   IconButton,
   Box
 } from "@mui/material";
-import { Facebook, Twitter } from "@mui/icons-material";
+import {  Twitter, LinkedIn, WhatsApp } from "@mui/icons-material";
 
 const Footer = () => {
+  const linkColor = {
+    color: "grey.400",
+    fontWeight: '550'
+  }
   return (
     <div>
-      <Box sx={{ backgroundColor: "grey.100" }}>
+      <Box sx={{ backgroundColor: "primary.main" }}>
       <Container maxWidth="lg" sx={{ mt: "96px", py: '36px' }}>
-        <Grid container>
-          <Grid item xs={6}>
+        <Stack direction="row" spacing={5} justifyContent="space-between" alignItems="center">
             <Stack direction="column" gap={8} >
               <Typography
-                variant="h5"
-                color="text.secondary"
+                variant="h4"
+                color="common.white"
                 sx={{ fontWeight: "600" }}
                 align="left"
                 gutterBottom
               >
                 Aloy Gallery
               </Typography>
-              <Typography variant="subtitle1" maxWidth="500px" align="left">
+              <Typography variant="body1"  sx={{ color: "grey.400",
+                  fontWeight: '550' }} maxWidth="350px" align="left">
                 We provide the best service all of the the world including
                 antartica and also deliver across the universe including mars
                 planet
               </Typography>
-            </Stack>
-          </Grid>
-          <Grid item xs={6}>
-              <Stack direction="row" justifyContent="space-around">
+          </Stack>
+              <Stack direction="row" justifyContent="space-around" gap={6}>
               <Stack direction="column" spacing={3}>
                 <Typography
-                  variant="h6"
-                  color="text.secondary"
+                  variant="h5"
+                  color="common.white"
                   sx={{ fontWeight: "600" }}
                 >
                   Products
                 </Typography>
-                <Link href=""><Typography variant="body1" color="text.primary" sx={{ textDecoration: 'none' }}>Furniture</Typography> </Link>
-                <Link href="">Lights</Link>
-                <Link href="">Design</Link>
-                <Link href="">Electronics</Link>
-                <Link href="">Electronics</Link>
+                <Link href=""><Typography variant="body1" color="grey.400" sx={{ textDecoration: 'none', fontWeight:"550" }}>Furniture</Typography> </Link>
+                <Link href="" sx={linkColor}>Lights</Link>
+                <Link href="" sx={linkColor}>Design</Link>
+                <Link href="" sx={linkColor}>Men Wears</Link>
+                <Link href="" sx={linkColor}>Lady Wears</Link>
               </Stack>
               <Stack direction="column" spacing={3}>
                 <Typography
-                  variant="h6"
-                  color="text.secondary"
-                  sx={{ fontWeight: "600" }}
-                >
-                  Products
-                </Typography>
-                <Link href="">Furniture</Link>
-                <Link href="">Lights</Link>
-                <Link href="">Design</Link>
-                <Link href="">Electronics</Link>
-                <Link href="">Electronics</Link>
-              </Stack>
-              <Stack direction="column" spacing={3}>
-                <Typography
-                  variant="h6"
-                  color="text.secondary"
-                  sx={{ fontWeight: "600" }}
-                >
-                  Products
-                </Typography>
-                <Link href="">Furniture</Link>
-                <Link href="">Lights</Link>
-                <Link href="">Design</Link>
-                <Link href="">Electronics</Link>
-                <Link href="">Electronics</Link>
-              </Stack>
-              <Stack direction="column" spacing={3}>
-                <Typography
-                  variant="h6"
-                  color="text.secondary"
+                  variant="h5"
+                  color="common.white"
                   sx={{ fontWeight: "600" }}
                 >
                   Get in touch
                 </Typography>
                 <Typography
-                  variant="subtitle1"
-                  color="text.secondary"
-                  sx={{ fontWeight: "600" }}
+                  variant="body1"
+                  sx={{ color: "grey.400",
+                  fontWeight: '550' }}
                 >
                   Question or Feedback? We love to hear from you
                 </Typography>
-                <Stack direction="row" spacing={3}>
-                  <IconButton>
-                    <Facebook />
+                <Stack direction="row" spacing={2}>
+                  <IconButton color="info" size="large">
+                    <LinkedIn />
+                  </IconButton>
+                  <IconButton color="info" size="large">
+                    <Twitter />
+                  </IconButton>
+                  <IconButton color="info" size="large">
+                    <WhatsApp />
                   </IconButton>
                 </Stack>
               </Stack>
            </Stack>
-            </Grid>
-          </Grid>
+          </Stack>
       </Container>
       </Box>
     </div>
