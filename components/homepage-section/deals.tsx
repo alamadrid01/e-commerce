@@ -7,7 +7,6 @@ import {
   Container,
   Stack,
   Button,
-  Rating,
   Paper,
   Box,
 } from "@mui/material";
