@@ -45,7 +45,7 @@ const Collection = (props: any) => {
          {
           data.map((items: any) => (
             <Grid item md={4} xs={12} key={items.name}>
-            <Paper elevation={2} variant="outlined" align="center" sx={{ p: "20px", backgroundColor: 'primary.light', borderRadius: '8px' }} >
+            <Paper elevation={2} variant="outlined" sx={{ p: "20px", backgroundColor: 'primary.light', borderRadius:'8px', textAlign: 'center' }} >
                 <Image src={`/${items.image}`} width={200} height={200} alt='product-images' />
                 <Typography variant="h5" align="center" sx={{ backgroundColor: 'white', p: '6px' }}> {items.name} </Typography>
             </Paper>

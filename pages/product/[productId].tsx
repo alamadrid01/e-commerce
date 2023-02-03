@@ -10,15 +10,13 @@ import {
   Button,
   Paper,
   Grid,
-  TextField,
   Box,
 } from "@mui/material";
 
 const ProductId = (props: any) => {
   const { data } = props;
   return (
-    <div>
-      <Box>
+      <Box sx={{ mt: '60px' }}>
         <Container maxWidth="lg">
           <Typography
             variant="h3"
@@ -42,7 +40,7 @@ const ProductId = (props: any) => {
               <Typography variant="body1" sx={{ color: "text.secondary" }}>
                 {data.description}
               </Typography>
-              <Button variant="outlined">Shop Now</Button>
+              <Button variant="outlined" sx={{ maxWidth:'50%' }}>Shop Now</Button>
             </Stack>
             <Stack direction="row" alignItems="center" justifyContent="center">
               <Image src={`/${data.image}`} alt="furniture" width={400} height={400} />
@@ -50,7 +48,6 @@ const ProductId = (props: any) => {
           </Stack>
         </Container>
       </Box>
-    </div>
   );
 };
 

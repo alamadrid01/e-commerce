@@ -38,19 +38,19 @@ const Navbar = () => {
             justifyContent="center"
             alignItems="center"
           >
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1, fontWeight: "800" }}>
+            <Typography variant="h6" component="div" sx={{ flexGrow: 1, fontWeight: "800", cursor: 'pointer' }} onClick={() => Router.push("/")}>
               AloyGallery
             </Typography>
-            <Link href="#" underline="none" sx={[linkHover]}  >
+            <Link href="/" underline="none" sx={[linkHover]}  >
               HOME
             </Link>
-            <Link href="#" underline="none"   sx={[linkHover]}  >
+            <Link href="/product" underline="none"   sx={[linkHover]}  >
               PRODUCTS
             </Link>
-            <Link href="#" underline="none"  sx={[linkHover]}  >
+            <Link href="/blog" underline="none"  sx={[linkHover]}  >
               BLOG
             </Link>
-            <Link href="#" underline="none" sx={[linkHover]} > 
+            <Link href="/about" underline="none" sx={[linkHover]} > 
               ABOUT
             </Link>
           </Stack>

@@ -4,23 +4,21 @@ import Image from "next/image";
 import Link from "next/link";
 import furniture from "../../public/sofa.png";
 import {
-  IconButton,
   Typography,
   Container,
   Stack,
   Button,
-  Paper,
   Grid,
-  TextField,
   Box,
+  Rating,
+  Paper
 } from "@mui/material";
 
 const Product = (props: any) => {
   const { data } = props;
-  console.log(data);
   return (
     <div>
-      <Box>
+      <Box sx={{ mt: '40px' }}>
         <Container maxWidth="lg">
           <Typography
             variant="h3"
@@ -45,7 +43,7 @@ const Product = (props: any) => {
                 There are many variations of furniture available from cushion to
                 sofa to chair, tables and lot more. We offer the at low cost
               </Typography>
-              <Button variant="outlined">Shop Now</Button>
+              <Button variant="outlined" sx={{ maxWidth:'50%' }}>Shop Now</Button>
             </Stack>
             <Stack direction="row" alignItems="center" justifyContent="center">
               <Image width={450} height={450} src={furniture} alt="furniture" />
@@ -54,40 +52,20 @@ const Product = (props: any) => {
           <Grid container spacing={3}>
             {data.map((items: any) => {
               return (
-                <Grid key={items.id} item xs={4}>
+                <Grid key={items.id} item xs={6} md={3}>
                   <Link href={`/product/${items.id}`}>
-                  <Box
-                    sx={{
-                      backgroundColor: "grey.100",
-                      mb: "16px",
-                      // "&:hover": {
-                      //   backgroundColor: "primary.main",
-                      //   opacity: [0.9, 0.8, 0.7],
-                      // },
-                    }}
-                  >
-                    <Stack
-                      direction="row"
-                      justifyContent="center"
-                      alignItems="center"
-                    >
-                      <Image
-                        width={200}
-                        height={200}
-                        src={`/${items.image}`}
-                        alt="furniture"
-                      />
+                <Paper  elevation={1} sx={{ p: '20px' }}>
+                    <Image src={`/${items.image}`} height={200} width={200} alt='best products' />
+                    <Stack direction="column" justifyContent="center" alignItems="center" spacing={2} sx={{ mt: '20px' }} >
+                        <Rating 
+                        value={items.rating}
+                        readOnly />
+                        <Typography variant="body1" color="primary.main" sx={{ fontWeight: '600' }}>{items.name}</Typography>
+                        <Typography variant="body1" color="primary.main" sx={{ fontWeight: '600' }}>${items.price}</Typography>
                     </Stack>
-                  </Box>
-                  </Link>
-                  <Typography
-                    variant="body1"
-                    align="center"
-                    sx={{ color: "text.secondary", fontWeight: "550" }}
-                  >
-                    {items.name}
-                  </Typography>
-                </Grid>
+                </Paper>
+                </Link>
+               </Grid>
               );
             })}
           </Grid>
