@@ -86,7 +86,7 @@ const Login = () => {
           margin="normal"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          helperText={error ? "Invalid credentials" : ""}
+          helperText={error ? "Wrong Username or Password" : ""}
           error={ error}
         />
         <FormControl fullWidth sx={{ my: 5}} variant="outlined" margin="normal">
@@ -109,9 +109,11 @@ const Login = () => {
             label="Password"
             value={password}
             onChange={e => setPassword(e.target.value)}
+            // helperText={error ? "Wrong Username or Password" : ""}
+          error={ error}
           />
         </FormControl>
-        <Button variant='contained' fullWidth sx={{backgroundColor: 'primary.main' ,py: 2 }} onClick={loginHandler} disabled={loading} >Log in</Button>
+        <Button variant='contained' fullWidth sx={{backgroundColor: 'primary.main' ,py: 2, color: 'white' }} onClick={loginHandler} disabled={loading} >Log in</Button>
         <Typography variant='subtitle1' color='primary.main' sx={{ fontWeight: '600', fontSize: '15px', textAlign: 'right', my: 2 }}>
           <Link href='/register'>or sign up?</Link>
         </Typography>

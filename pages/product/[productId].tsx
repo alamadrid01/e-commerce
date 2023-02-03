@@ -10,6 +10,7 @@ import {
   Button,
   Paper,
   Grid,
+  Rating,
   Box,
 } from "@mui/material";
 
@@ -46,6 +47,22 @@ const ProductId = (props: any) => {
               <Image src={`/${data.image}`} alt="furniture" width={400} height={400} />
             </Stack>
           </Stack>
+        </Container>
+        <Container maxWidth="lg" sx={{ mt: '50px' }}>
+        <Stack direction="row" alignItems="center" justifyContent="center">
+        <Stack direction="row" alignItems="center" justifyContent="center">
+              <Image src={`/${data.image}`} alt="furniture" width={400} height={400} />
+            </Stack>
+            <Stack direction="column" spacing={3}>
+            <Typography
+                variant="h4"
+                sx={{ color: "text.secondary", fontWeight: "600" }}
+              >
+                Super Soft {data.name}
+              </Typography>
+              <Rating value={data.rating} />
+            </Stack>
+            </Stack>
         </Container>
       </Box>
   );

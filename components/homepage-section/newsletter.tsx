@@ -12,10 +12,12 @@ import {
   IconButton
 } from "@mui/material";
 import { NearMe} from '@mui/icons-material/';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Newsletter = () => {
     const clickHandler = () =>{
-        alert("test")
+      toast("Thanks for subscribing");
     }
   return (
     <div>
@@ -38,6 +40,7 @@ const Newsletter = () => {
         <TextField
           placeholder="Email address"
           id="outlined-required"
+          type="email"
           label="Email Address"
           variant="outlined"
           sx={{ width: '50%', borderRadius: "12px" }}
@@ -54,6 +57,7 @@ const Newsletter = () => {
             ),
           }}
         />
+        <ToastContainer />
        </Stack>
       </Container>
       </Box>
