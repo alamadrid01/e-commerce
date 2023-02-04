@@ -12,12 +12,33 @@ import {
   Grid,
   Rating,
   Box,
+  FormLabel,
+  FormControl,
+  RadioGroup,
+  FormControlLabel,
+  Radio
 } from "@mui/material";
+import {Add, Remove, Favorite, FavoriteBorder} from "@mui/icons-material"
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import { toast, ToastContainer } from "react-toastify";
 
 const ProductId = (props: any) => {
+  const [value, setValue] = React.useState<string | number>('')
+  const [heart, setHeart] = React.useState<boolean>(false)
+  const [quantity, setQuantity] = React.useState<number>(0)
   const { data } = props;
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setValue(event.target.value)
+  }
+
+  const handleCart = () => {
+    toast("Your Item has been added to cart")
+  }
   return (
       <Box sx={{ mt: '60px' }}>
+        <ToastContainer />
         <Container maxWidth="lg">
           <Typography
             variant="h3"
@@ -31,6 +52,10 @@ const ProductId = (props: any) => {
             alignItems="center"
             spacing={5}
           >
+            
+            <Stack direction="row" alignItems="center" justifyContent="center">
+              <Image src={`/${data.image}`} alt="furniture" width={400} height={400} />
+            </Stack>
             <Stack direction="column" spacing={3} maxWidth="600px">
               <Typography
                 variant="h4"
@@ -41,10 +66,41 @@ const ProductId = (props: any) => {
               <Typography variant="body1" sx={{ color: "text.secondary" }}>
                 {data.description}
               </Typography>
-              <Button variant="outlined" sx={{ maxWidth:'50%' }}>Shop Now</Button>
-            </Stack>
-            <Stack direction="row" alignItems="center" justifyContent="center">
-              <Image src={`/${data.image}`} alt="furniture" width={400} height={400} />
+              <Rating value={data.rating} />
+              <Stack direction="column" spacing={3}>
+                <FormControl>
+                  <FormLabel id="product-label">
+                    Size
+                  </FormLabel>
+                  <RadioGroup
+                  name="sizes"
+                  aria-labelledby="product-label"
+                  row
+                  >
+                    <FormControlLabel control={<Radio color="primary" />} label="small" value="small" />
+                    <FormControlLabel control={<Radio color="primary" />} label="medium" value="medium" />
+                    <FormControlLabel control={<Radio color="primary" />} label="large" value="large" />
+                    value={value}
+                    onChange={handleChange}
+                  </RadioGroup>
+                </FormControl>
+                <Typography variant="body1" sx={{ color: "text.secondary" }}>Quantity</Typography>
+                <Stack direction="row" spacing={3}>
+                  <IconButton color="info" onClick={() => setQuantity(prev => prev + 1)}>
+                    <Add />
+                  </IconButton>
+                  <Typography variant="body1" sx={{ color: "text.secondary" }}>{quantity}</Typography>
+                  <IconButton color="info" onClick= {() => setQuantity(prev => prev - 1 ) }>
+                    <Remove />
+                  </IconButton>
+                </Stack>
+              </Stack>
+              <Button variant="contained" sx={{ maxWidth:'80%', color: "white", borderRadius: '15px' }} onClick={handleCart}>Add to cart</Button>
+              <IconButton color="info" onClick={() => setQuantity(prev => prev + 1)}>
+                    {
+                      heart ? <Favorite /> : <FavoriteBorder />
+                    }
+                  </IconButton>
             </Stack>
           </Stack>
         </Container>
