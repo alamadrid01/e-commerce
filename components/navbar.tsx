@@ -67,7 +67,7 @@ const Navbar = () => {
             <IconButton edge="start" size='large' onClick={() => Router.push('/login')}>
               <AccountCircleIcon/>
             </IconButton>
-            <IconButton edge="end" size='large'>
+            <IconButton edge="end" size='large' onClick={() => Router.push('/cart')}>
             <ShoppingCartIcon />
             </IconButton>
           </Stack>

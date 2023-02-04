@@ -34,15 +34,15 @@ const Cart = () => {
   return (
     <Box sx={{ mt: '40px' }}>
         <Container maxWidth="lg">
-           <Stack direction = 'row' spacing={1} alignItems="center">
+           <Stack direction = 'row' spacing={1} alignItems="center" sx={{ cursor: "pointer" }} onClick={() => Router.push("/")}>
            <IconButton>
                 <ArrowBack />
             </IconButton>
          <Typography  variant = "body1" sx={{fontWeight: '600', color: "grey.400"}} >BACK TO STORE</Typography>
            </Stack>
-           <Grid container spacing={3}>
+           <Grid container spacing={4}>
                 <Grid item xs ={9}>
-           <Stack direction="row" justifyContent="space-between">
+           <Stack direction="row" justifyContent="space-between" alignItems="center">
         <Typography
           align="center"
           variant="h3"
@@ -100,9 +100,30 @@ const Cart = () => {
             }
              </Grid>
              <Grid item xs={3}>
-                <Stack direction="column" spacing={4} sx={{ px: "15px", backgroundColor: 'grey.100' }}>
+                <Stack direction= "column" alignItems="space-between" justifyContent="space-between" sx={{ p: "20px 15px", height:'90vh', backgroundColor: 'primary.light', borderRadius: '12px' }}>
+                <Stack direction="column" spacing={4} >
                 <Typography  variant = "h5" sx={{fontWeight: '600', color: "text.secondary,"}} >Summary</Typography>
+                <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: '1px' }}>
+                        <Typography  variant = "body1" sx={{fontWeight: '600', color: "text.secondary,"}} >Subtotal</Typography>
+                        <Typography  variant = "body1" sx={{fontWeight: '600', color: "text.secondary,"}} >$400</Typography>
+                </Stack>
+                <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: '1px' }}>
+                        <Typography  variant = "body1" sx={{fontWeight: '600', color: "text.secondary,"}} >Shipping</Typography>
+                        <Typography  variant = "body1" sx={{fontWeight: '600', color: "text.secondary,"}} >$0</Typography>
+                </Stack>
+                <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: '1px' }}>
+                        <Typography  variant = "body1" sx={{fontWeight: '600', color: "text.secondary,"}} >Tax</Typography>
+                        <Typography  variant = "body1" sx={{fontWeight: '600', color: "text.secondary,"}} >$20</Typography>
+                </Stack>
+                </Stack>
 
+                <Stack direction="column" spacing={3}>
+                <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: '1px' }}>
+                        <Typography  variant = "body1" sx={{fontWeight: '600', color: "text.secondary,"}} >Total</Typography>
+                        <Typography  variant = "body1" sx={{fontWeight: '600', color: "text.secondary,"}} >$420</Typography>
+                </Stack>
+                <Button variant="contained" sx={{ color:"common.white" }}>CHECKOUT</Button>
+                </Stack>
                 </Stack>
              </Grid>
            </Grid>
