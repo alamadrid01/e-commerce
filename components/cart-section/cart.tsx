@@ -122,7 +122,7 @@ const Cart = () => {
                         <Typography  variant = "body1" sx={{fontWeight: '600', color: "text.secondary,"}} >Total</Typography>
                         <Typography  variant = "body1" sx={{fontWeight: '600', color: "text.secondary,"}} >$420</Typography>
                 </Stack>
-                <Button variant="contained" sx={{ color:"common.white" }}>CHECKOUT</Button>
+                <Button variant="contained" sx={{ color:"common.white" }} onClick={() => Router.push("/checkout")}>CHECKOUT</Button>
                 </Stack>
                 </Stack>
              </Grid>
