@@ -22,6 +22,7 @@ import {Add, Remove, Favorite, FavoriteBorder} from "@mui/icons-material"
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { toast, ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const ProductId = (props: any) => {
   const [value, setValue] = React.useState<string | number>('')
@@ -56,69 +57,55 @@ const ProductId = (props: any) => {
             <Stack direction="row" alignItems="center" justifyContent="center">
               <Image src={`/${data.image}`} alt="furniture" width={400} height={400} />
             </Stack>
-            <Stack direction="column" spacing={3} maxWidth="600px">
+            <Stack direction="column" spacing={3} maxWidth="600px" alignItems="end">
               <Typography
                 variant="h4"
                 sx={{ color: "text.secondary", fontWeight: "600" }}
               >
                 {data.name}
               </Typography>
-              <Typography variant="body1" sx={{ color: "text.secondary" }}>
+              <Typography variant="body1" align="right" sx={{ color: "text.secondary" }}>
                 {data.description}
               </Typography>
               <Rating value={data.rating} />
-              <Stack direction="column" spacing={3}>
+              <Stack direction="column" spacing={3} >
                 <FormControl>
-                  <FormLabel id="product-label">
+                  <FormLabel id="product-label" sx={{ fontWeight: '600' }}>
                     Size
                   </FormLabel>
                   <RadioGroup
                   name="sizes"
                   aria-labelledby="product-label"
                   row
+                  value={value}
+                  onChange={handleChange}
                   >
                     <FormControlLabel control={<Radio color="primary" />} label="small" value="small" />
                     <FormControlLabel control={<Radio color="primary" />} label="medium" value="medium" />
                     <FormControlLabel control={<Radio color="primary" />} label="large" value="large" />
-                    value={value}
-                    onChange={handleChange}
                   </RadioGroup>
                 </FormControl>
-                <Typography variant="body1" sx={{ color: "text.secondary" }}>Quantity</Typography>
-                <Stack direction="row" spacing={3}>
+                <Typography variant="body1" sx={{ color: "text.secondary", fontWeight: '600' }}>Quantity</Typography>
+                <Stack direction="row" spacing={3} alignItems="center">
                   <IconButton color="info" onClick={() => setQuantity(prev => prev + 1)}>
                     <Add />
                   </IconButton>
-                  <Typography variant="body1" sx={{ color: "text.secondary" }}>{quantity}</Typography>
+                  <Typography variant="body1" sx={{ color: "text.secondary", fontWeight: '600' }}>{quantity}</Typography>
                   <IconButton color="info" onClick= {() => setQuantity(prev => prev - 1 ) }>
                     <Remove />
                   </IconButton>
                 </Stack>
               </Stack>
-              <Button variant="contained" sx={{ maxWidth:'80%', color: "white", borderRadius: '15px' }} onClick={handleCart}>Add to cart</Button>
-              <IconButton color="info" onClick={() => setQuantity(prev => prev + 1)}>
+              <Stack direction="row" justifyContent="space-between" spacing={4} sx={{ pt: '20px' }}>
+              <Button variant="contained" sx={{ maxWidth:'100%', color: "white", borderRadius: '15px', p: '0 40px' }} onClick={handleCart}>Add to cart</Button>
+              <IconButton color="error" onClick={() => setHeart(!heart)}>
                     {
                       heart ? <Favorite /> : <FavoriteBorder />
                     }
                   </IconButton>
+                  </Stack>
             </Stack>
           </Stack>
-        </Container>
-        <Container maxWidth="lg" sx={{ mt: '50px' }}>
-        <Stack direction="row" alignItems="center" justifyContent="center">
-        <Stack direction="row" alignItems="center" justifyContent="center">
-              <Image src={`/${data.image}`} alt="furniture" width={400} height={400} />
-            </Stack>
-            <Stack direction="column" spacing={3}>
-            <Typography
-                variant="h4"
-                sx={{ color: "text.secondary", fontWeight: "600" }}
-              >
-                Super Soft {data.name}
-              </Typography>
-              <Rating value={data.rating} />
-            </Stack>
-            </Stack>
         </Container>
       </Box>
   );

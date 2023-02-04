@@ -60,7 +60,7 @@ const Register = () => {
         console.log(response.data);
         toast(`Thank you for registering ${fullName}`);
         Router.push('/login');
-    }catch(err){
+    }catch(err: any){
         console.error(err);
         if(err.response.status === 400){
           console.log("Invalid credentials")
