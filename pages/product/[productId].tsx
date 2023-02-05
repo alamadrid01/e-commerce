@@ -49,7 +49,7 @@ const ProductId = (props: any) => {
       quantity
     }
     console.log(cartItems)
-    
+
     const config = {
       headers : {
         'Content-Type': 'application/json'
@@ -57,7 +57,7 @@ const ProductId = (props: any) => {
     }
 
     try{
-      const response = await axios.post("/api/cart", JSON.stringify(cartItems), config )
+      const response = await axios.put("/api/cart", JSON.stringify(cartItems), config )
       console.log(response)
     }catch(err){
       console.error(err)
