@@ -1,4 +1,4 @@
-import connectDB from "../../lib/connect";
+import connectDB from "../../../lib/connect";
 import dotenv from "dotenv";
 
 // import mongoose from "mongoose";

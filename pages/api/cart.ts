@@ -8,9 +8,9 @@ export default async function handler(
 ) {
   const { method } = req;
 
+  const { productId, size, quantity, email } = req.body;
   switch (method) {
     case "PUT":
-      const { productId, size, quantity, email } = req.body;
 
       // Check if product to be added to the cart is sent
       if (!req?.body?.productId) {
@@ -65,8 +65,14 @@ export default async function handler(
 
       break;
 
-    case "GET":
-      res.json({ message: "This is the add to cart server" });
+    case "POST":
+        const result = await User.findOne({email: email}).exec();
+      res.json(result.cart);
+
+      break;
+
+      case "GET": 
+      res.json({"message": "You are trying to access the cart API"})
 
       break;
   }
