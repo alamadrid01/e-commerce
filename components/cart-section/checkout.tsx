@@ -7,9 +7,17 @@ import {
   Stack,
   Button,
   TextField,
+  RadioGroup,
+  FormControl,
+  FormControlLabel,
+  Radio,
   IconButton,
   Grid,
+  InputProps,
+  InputAdornment
 } from "@mui/material";
+
+import {AccountBalance} from "@mui/icons-material"
 
 const Checkout = () => {
   const [items, setItems] = React.useState([])
@@ -96,7 +104,6 @@ const Checkout = () => {
           </Grid>
             }
           {showSecond &&
-           
           <Grid item xs={7}>
             <Stack direction="column" spacing="4" >
               <Typography
@@ -167,34 +174,57 @@ const Checkout = () => {
                   sx={{ fontWeight: "600" }}
                   gutterBottom
                 >
-                  Payment Section
+                  How would you like to pay?
                 </Typography>
+
                 <Stack direction="column" spacing={5} sx={{ pb: '40px', pt: '50px' }}>
+                <FormControl>
+                    <RadioGroup>
+                        <FormControlLabel value="Pay with Credit Card" label="Pay with Credit Card" control={<Radio />} />
+                        <FormControlLabel value="Pay with PayPal" label="Pay with PayPal" control={<Radio />} />
+                        <FormControlLabel value="Use giftcard" label="Use giftcard " control={<Radio disabled />} />
+                    </RadioGroup>
+                </FormControl>
                 <TextField
                 variant="standard"
-                type="email"
-                label="Email"
-                placeholder="example@email.com"
+                type="text"
+                label="Name on card"
+                  />
+                <TextField
+                variant="standard"
+                type="text"
+                label="Card Number"
+                InputProps={{
+                    endAdornment: (
+                      <InputAdornment position="end">
+                        <IconButton color='info'>
+                        <AccountBalance/>
+                        </IconButton>
+                      </InputAdornment>
+                    ),
+                  }}
                   />
                 <Stack direction="row" justifyContent="space-between" spacing={5}>
                 <TextField
                 variant="standard"
-                type="text"
-                label="First Name"
-                placeholder="First Name"
+                type="number"
+                label="Expiration"
                 fullWidth
                   />
                 <TextField
                 variant="standard"
-                type="text"
-                label="Last Name"
-                placeholder="Last Name"
+                type="password"
+                label="CVV"
                 fullWidth
                   />
                 </Stack>
+                <FormControl>
+                    <FormControlLabel control={<Checkbox value={check} onChange={(e) => setCheck(e.target.value)} />} label="Use shipping address as billing info" />
+                    <FormControlLabel control={<Checkbox value={check} onChange={(e) => setCheck(e.target.value)} />} label="I accept Alloy Gallery Terms & Condition" />
+                </FormControl>
                   </Stack>
   
-                  <Button variant="contained" sx={{color: 'common.white', borderRadius: '12px', maxWidth:'50%', py:'9px'}} onClick={upperPage}>Proceed To Shipping</Button>
+                  <Button variant="contained" sx={{color: 'common.white', borderRadius: '12px', maxWidth:'50%', py:'9px'}} onClick={upperPage}>Proceed To Pay</Button>
               </Stack>
             </Grid>
             }
