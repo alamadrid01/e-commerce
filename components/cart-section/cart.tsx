@@ -18,13 +18,6 @@ import {
 import { ArrowBack, Clear } from '@mui/icons-material'
 import {useGlobalContext} from "../../context/context"
 
-// {
-//         "productId": 1,
-//         "size": "small",
-//         "quantity": 2,
-//         "email": "adebayoalameen88@gmail.com"
-//       }
-
 const Cart = () => {    
         const {cartItem} = useGlobalContext()
         const [items, setItems] = React.useState([])

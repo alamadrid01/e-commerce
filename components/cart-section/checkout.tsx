@@ -25,6 +25,8 @@ const Checkout = () => {
   const [show, setShow] = React.useState(true)
   const [showSecond, setShowSecond] = React.useState(false)
   const [showThird, setThirdShow] = React.useState(false)
+  const [check, setCheck] = React.useState(false)
+  const [secondCheck, setSecondCheck] = React.useState(false)
   React.useEffect(() =>{
           const getItems = async () => {
                   try{    
@@ -181,8 +183,8 @@ const Checkout = () => {
                 <Stack direction="column" spacing={5} sx={{ pb: '40px', pt: '50px' }}>
                 <FormControl>
                     <RadioGroup>
-                        <FormControlLabel value="Pay with Credit Card" label="Pay with Credit Card" control={<Radio />} />
-                        <FormControlLabel value="Pay with PayPal" label="Pay with PayPal" control={<Radio />} />
+                        <FormControlLabel value="Pay with Credit/Debit Card" label="Pay with Credit/Debit Card" control={<Radio />} />
+                        <FormControlLabel value="Pay with PayPal" label="Pay with PayPal" control={<Radio disabled />} />
                         <FormControlLabel value="Use giftcard" label="Use giftcard " control={<Radio disabled />} />
                     </RadioGroup>
                 </FormControl>
@@ -220,8 +222,8 @@ const Checkout = () => {
                   />
                 </Stack>
                 <FormControl>
-                    <FormControlLabel control={<Checkbox value={check} onChange={(e) => setCheck(e.target.value)} />} label="Use shipping address as billing info" />
-                    <FormControlLabel control={<Checkbox value={check} onChange={(e) => setCheck(e.target.value)} />} label="I accept Alloy Gallery Terms & Condition" />
+                    <FormControlLabel control={<Checkbox checked={check} onChange={(e) => setCheck(e.target.checked)} />} label="Use shipping address as billing info" />
+                    <FormControlLabel control={<Checkbox checked={secondCheck} onChange={(e) => setSecondCheck(e.target.checked)} />} label="I accept Alloy Gallery Terms & Condition" />
                 </FormControl>
                   </Stack>
   

@@ -15,11 +15,13 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
-    cart: {
-        size: String,
-        quantity: Number,
-        itemId: Number
-    },
+    cart: [
+        {
+            itemId: Number,
+            size: String,
+            quantity: Number,
+        }
+    ],
     roles: {
         User: {
             type: Number,
