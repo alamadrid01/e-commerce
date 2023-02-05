@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import axios from 'axios'
 import Image from "next/image"
 import loginImage from "../../public/login.jpg"
@@ -16,8 +16,17 @@ import {
   Box
 } from "@mui/material";
 import { ArrowBack, Clear } from '@mui/icons-material'
+import {useGlobalContext} from "../../context/context"
 
-const Cart = () => {
+// {
+//         "productId": 1,
+//         "size": "small",
+//         "quantity": 2,
+//         "email": "adebayoalameen88@gmail.com"
+//       }
+
+const Cart = () => {    
+        const {cartItem} = useGlobalContext()
         const [items, setItems] = React.useState([])
         React.useEffect(() =>{
                 const getItems = async () => {

@@ -8,6 +8,7 @@ import theme from '../config/theme';
 import createEmotionCache from '../config/createEmotionCache';
 import '../styles/globals.css'
 import Navbar from '../components/navbar';
+import { UserContext } from '../context/context'; 
 import Footer from '../components/footer';
 
 
@@ -21,6 +22,7 @@ interface MyAppProps extends AppProps {
 
 export default function MyApp(props: MyAppProps) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
+  const [cartItem, setCartItem] = React.useState<string | number []>([])
   return (
     <CacheProvider value={emotionCache}>
       <Head>
@@ -29,9 +31,11 @@ export default function MyApp(props: MyAppProps) {
       <ThemeProvider theme={theme}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
+        <UserContext.Provider value={{cartItem, setCartItem}}>
         <Navbar />
         <Component {...pageProps} />
         <Footer />
+        </UserContext.Provider>
         
       </ThemeProvider>
     </CacheProvider>

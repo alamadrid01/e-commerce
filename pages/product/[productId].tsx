@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useContext} from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
 import Image from "next/image";
@@ -23,19 +23,45 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { toast, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import {useGlobalContext} from "../../context/context"
 
 const ProductId = (props: any) => {
   const [value, setValue] = React.useState<string | number>('')
   const [heart, setHeart] = React.useState<boolean>(false)
   const [quantity, setQuantity] = React.useState<number>(0)
   const { data } = props;
+  const Router = useRouter()
+  const {cartItem, setCartItem} = useGlobalContext()
+
+  const productId = Router.query.productId
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value)
   }
 
-  const handleCart = () => {
-    toast("Your Item has been added to cart")
+  const handleCart = async () => {
+    // toast("Your Item has been added to cart")
+    // setCartItem([...cartItem, {productId}])
+
+    const cartItems = {
+      productId, 
+      size: value,
+      quantity
+    }
+    console.log(cartItems)
+
+    const config = {
+      headers : {
+        'Content-Type': 'application/json'
+      }
+    }
+
+    try{
+      const response = await axios.put("/api/cart", JSON.stringify(cartItems), config )
+      console.log(response)
+    }catch(err){
+      console.error(err)
+    }
   }
   return (
       <Box sx={{ mt: '60px' }}>
