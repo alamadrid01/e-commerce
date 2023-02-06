@@ -60,8 +60,8 @@ const Cart = () => {
 
   const handleDelete = async (id: any) =>{
         alert(id)
-        await axios.delete(`http://localhost:4000/cart/${id}`)
         try{
+          await axios.delete(`http://localhost:4000/cart/${id}`)
 
         }catch(err){
            alert('Unable to delete the items')
