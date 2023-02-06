@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-const User = require("../../models/user");
+const User = require("../../../models/user");
 import axios from "axios";
 
 export default async function handler(
@@ -38,6 +38,8 @@ export default async function handler(
             quantity,
             itemId: productId,
             size,
+            category,
+            image
           };
           if (items) {
             const result = await User.updateOne(

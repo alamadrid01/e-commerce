@@ -1,13 +1,13 @@
 import type { NextApiResponse, NextApiRequest } from "next/types";
 const User = require("../../../models/user")
 
-export async function handler (req: NextApiRequest, res: NextApiResponse){
+export default async function handler (req: NextApiRequest, res: NextApiResponse){
     const {cartId} = req.query
     const {method} = req
     const {email} = req.body
 
     switch(method){
-        case 'DELETE' : 
+        case 'POST' : 
 
         // Always check if user is authenticated by req.body.id
 
@@ -18,7 +18,10 @@ export async function handler (req: NextApiRequest, res: NextApiResponse){
             res.status(403).json({"message": "No user found with that email"})
         }else{
             const check = await User.updateOne({email: email}, {$pull: {cart: {itemId: cartId}}})
-            res.json(check) 
+            res.json({
+                "message": "Item has been removed from cart",
+                check
+            }) 
         }
         break;
 

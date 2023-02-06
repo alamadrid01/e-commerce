@@ -26,7 +26,6 @@ const Cart = () => {
             try{
                     const response = await axios.get("http://localhost:4000/products")
                     setItems(response.data.slice(0, 3))
-                    console.log(items)
                 }catch(err){
                     console.error(err)
                 }
@@ -59,9 +58,17 @@ const Cart = () => {
   }, []);
 
   const handleDelete = async (id: any) =>{
-        alert(id)
+    const data = {
+      email: "test@gmail.com"
+    }
+    const config = {
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }
         try{
-          await axios.delete(`http://localhost:4000/cart/${id}`)
+          const result = await axios.post(`/api/cart/${id}`, JSON.stringify(data), config)
+          alert(result.status)
 
         }catch(err){
            alert('Unable to delete the items')

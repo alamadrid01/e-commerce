@@ -46,7 +46,8 @@ const ProductId = (props: any) => {
     const cartItems = {
       productId, 
       size: value,
-      quantity
+      quantity,
+      email: "test@gmail.com"
     }
     console.log(cartItems)
 
