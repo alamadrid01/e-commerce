@@ -1,6 +1,9 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 const User = require("../../../models/user");
 import axios from "axios";
+const multer = require("multer")
+
+const upload = multer();
 
 export default async function handler(
   req: NextApiRequest,
@@ -8,10 +11,10 @@ export default async function handler(
 ) {
   const { method } = req;
 
-  const { productId, size, quantity, email } = req.body;
+  const { productId, size, quantity, email, image } = req.body;
+  console.log(req.body)
   switch (method) {
     case "PUT":
-
       // Check if product to be added to the cart is sent
       if (!req?.body?.productId) {
         res.status(400).json({ message: "Product ID is required" });
@@ -22,6 +25,7 @@ export default async function handler(
         const response = await axios.get(
           `http://localhost:4000/products/${productId}`
         );
+        const { name, price, image, category } = response.data;
         if (response.data.length === 0 || response.data.quantity === 0) {
           res
             .status(204)
@@ -38,7 +42,6 @@ export default async function handler(
             quantity,
             itemId: productId,
             size,
-            category,
             image
           };
           if (items) {
@@ -47,7 +50,6 @@ export default async function handler(
               { $addToSet: { cart: items } }
             );
 
-            const { name, price, image, category } = response.data;
             res.json({
               message: "Item added to cart successfully",
               name,
@@ -62,19 +64,19 @@ export default async function handler(
       } catch (err) {
         res
           .status(400)
-          .json({ message: `No item is found with ID ${productId}` });
+          .json({ message: `No item is or are found with ID ${productId}` });
       }
 
       break;
 
     case "POST":
-        const result = await User.findOne({email: email}).exec();
+      const result = await User.findOne({ email: email }).exec();
       res.json(result.cart);
 
       break;
 
-      case "GET": 
-      res.json({"message": "You are trying to access the cart API"})
+    case "GET":
+      res.json({ message: "You are trying to access the cart API" });
 
       break;
   }

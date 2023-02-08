@@ -19,19 +19,17 @@ import {
   Radio
 } from "@mui/material";
 import {Add, Remove, Favorite, FavoriteBorder} from "@mui/icons-material"
-import Visibility from '@mui/icons-material/Visibility';
-import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { toast, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import {useGlobalContext} from "../../context/context"
 
-const ProductId = (props: any) => {
+const ProductId = () => {
   const [value, setValue] = React.useState<string | number>('')
   const [heart, setHeart] = React.useState<boolean>(false)
   const [quantity, setQuantity] = React.useState<number>(0)
-  const { data } = props;
+  const [data, setData] = React.useState<any>({})
   const Router = useRouter()
-  const {cartItem, setCartItem} = useGlobalContext()
+  // const {cartItem, setCartItem} = useGlobalContext()
 
   const productId = Router.query.productId
 
@@ -39,17 +37,41 @@ const ProductId = (props: any) => {
     setValue(event.target.value)
   }
 
+  React.useEffect(() =>{
+    const response = async () =>{
+      try{
+        const result = await axios.get(
+          `http://localhost:4000/products/${productId}`
+        );
+        setData(result.data)
+      }catch(err){
+        console.error(err)
+      }
+    }
+    response()
+  },[])
+
+  const getBase64 = (file: any) =>{
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = error => reject(error);
+    })
+  }
+
+
   const handleCart = async () => {
-    // toast("Your Item has been added to cart")
     // setCartItem([...cartItem, {productId}])
+
 
     const cartItems = {
       productId, 
       size: value,
       quantity,
-      email: "test@gmail.com"
+      email: "test@gmail.com",
+      image: data.image
     }
-    console.log(cartItems)
 
     const config = {
       headers : {
@@ -60,10 +82,12 @@ const ProductId = (props: any) => {
     try{
       const response = await axios.put("/api/cart", JSON.stringify(cartItems), config )
       console.log(response)
+      if(response.status === 200) toast("Your Item has been added to cart")
     }catch(err){
       console.error(err)
     }
   }
+
   return (
       <Box sx={{ mt: '60px' }}>
         <ToastContainer />
@@ -94,7 +118,7 @@ const ProductId = (props: any) => {
               <Typography variant="body1" align="right" sx={{ color: "text.secondary" }}>
                 {data.description}
               </Typography>
-              <Rating value={data.rating} />
+              <Rating value={data.rating ?? " "} />
               <Stack direction="column" spacing={3} >
                 <FormControl>
                   <FormLabel id="product-label" sx={{ fontWeight: '600' }}>
@@ -139,40 +163,3 @@ const ProductId = (props: any) => {
 };
 
 export default ProductId;
-
-export async function getStaticPaths() {
-  const response = await axios.get("http://localhost:4000/products");
-  const data = response.data;
-
-  const paths = data.map((items: any) => {
-    return {
-      params: {
-        productId: `${items.id}`,
-      },
-    };
-  });
-  return {
-    paths,
-    fallback: false,
-  };
-}
-
-export async function getStaticProps(context: any) {
-  const { params } = context;
-  const { productId } = params;
-
-  try {
-    const response = await axios.get(
-      `http://localhost:4000/products/${productId}`
-    );
-    const data = response.data;
-
-    return {
-      props: {
-        data,
-      },
-    };
-  } catch (error) {
-    console.log(error);
-  }
-}

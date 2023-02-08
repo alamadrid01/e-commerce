@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+  import React, { useContext } from "react";
 import axios from "axios";
 import Image from "next/image";
 import loginImage from "../../public/login.jpg";
@@ -19,7 +19,7 @@ import { ArrowBack, Clear } from "@mui/icons-material";
 import { useGlobalContext } from "../../context/context";
 
 const Cart = () => {
-  const { cartItem } = useGlobalContext();
+  // const { cartItem } = useGlobalContext();
   const [items, setItems] = React.useState([]);
   React.useEffect(() => {
     const getItems = async () => {

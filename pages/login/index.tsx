@@ -44,6 +44,9 @@ const Login = () => {
           "Content-type": "application/json"
         }
       }
+      // const bodyFormData = new FormData()
+      // bodyFormData.append("email", email)
+      // bodyFormData.append("password", password)
       try{
         const response = await axios.post("http://localhost:3000/api/login", JSON.stringify(data), config)
         if(response.status === 200){

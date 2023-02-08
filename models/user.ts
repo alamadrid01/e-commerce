@@ -15,20 +15,13 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
-    profile: {
-        data: Buffer,
-        contentType: String
-    },
     cart: [
         {
             itemId: Number,
             size: String,
             quantity: Number,
             category: String,
-            image: {
-                data: Buffer,
-                contentType: String
-            }
+            image: String
         }
     ],
     roles: {
